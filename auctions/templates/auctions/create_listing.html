@@ -1,0 +1,30 @@
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+
+<h1>Create Listing</h1>
+
+<form action="{% url 'index' %}" method="post">
+    {% csrf_token %}
+
+<b> Title: </b> <input class="form-control" type="text" name="title" placeholder="Product name">
+<b>Description:</b> <input class="form-control" type="text" name="description" placeholder="Description">
+<b>Current Price:</b> <input class="form-control" type="text" name="current_price" placeholder="Current Price">
+<b>Image URL:</b> <input class="form-control" type="text" name="image_url" placeholder="Copy, Paste the URL of the Image here">
+<b>Category:</b> <input class="form-control" type="text" name="category" placeholder="Category">
+<input type="submit">
+
+</form>
+
+
+
+
+
+{% endblock %}
+
+<b> Title: </b> <input class="form-control" type="text" placeholder="Product name">
+<b>Description:</b> <input class="form-control" type="text" placeholder="Description">
+<b>Current Price:</b> <input class="form-control" type="text" placeholder="Current Price">
+<b>Image URL:</b> <input class="form-control" type="text" placeholder="Copy, Paste the URL of the Image here">
+
+<input type="submit">
