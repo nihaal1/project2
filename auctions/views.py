@@ -68,5 +68,30 @@ def index(request):
     })
 
 def create_listing(request):
+
+    if request.method == "POST":
+        create = Auction_list()
+
+        create.seller = request.user.username
+        create.title = request.POST.get('title')
+        create.description = request.POST.get('description')
+        create.current_price = request.POST.get('current_price')
+        if request.POST.get('image_url'):
+            create.image_url = request.POST.get('image_url')
+        else:
+            create.image_url = "https://thumbs.dreamstime.com/b/no-image-available-icon-photo-camera-flat-vector-illustration-132483141.jpg"
+        
+        create.save()
+
+
     
-    return render (request, "auctions/create_listing.html")
+    return render (request, "auctions/create_listing.html",{
+         
+        })
+
+    '''
+    else:
+        return render (request, "auctions/index.html",{
+        "listing" : Auction_list.objects.all()
+    })
+    '''

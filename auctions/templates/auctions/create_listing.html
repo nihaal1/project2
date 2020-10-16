@@ -4,14 +4,23 @@
 
 <h1>Create Listing</h1>
 
-<form action="{% url 'index' %}" method="post">
+<form action="{% url 'create_listing' %}" method="post">
     {% csrf_token %}
 
-<b> Title: </b> <input class="form-control" type="text" name="title" placeholder="Product name">
-<b>Description:</b> <input class="form-control" type="text" name="description" placeholder="Description">
-<b>Current Price:</b> <input class="form-control" type="text" name="current_price" placeholder="Current Price">
+<b> Title: </b> <input class="form-control" type="text" name="title" placeholder="Product name" required>
+<b>Description:</b> <input class="form-control" type="text" name="description" placeholder="Description" required>
+<b>Current Price:</b> <input class="form-control" type="text" name="current_price" placeholder="Current Price" required>
 <b>Image URL:</b> <input class="form-control" type="text" name="image_url" placeholder="Copy, Paste the URL of the Image here">
-<b>Category:</b> <input class="form-control" type="text" name="category" placeholder="Category">
+<b>Category:</b> 
+    <select class="form-control" name="category" placeholder="Category" required>
+    <option value="">Choose a Category</option>
+    <option value="general">General</option>
+    <option value="sports">Sports</option>
+    <option value="toys">Toys</option>
+    <option value="electronics">Electronics</option>
+    <option value="accessories">Accessories</option>
+    <option value="books">Books</option>
+</select>
 <input type="submit">
 
 </form>
