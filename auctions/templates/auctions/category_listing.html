@@ -1,0 +1,45 @@
+{% extends "auctions/layout.html" %}
+
+{% block head %}
+<style>
+    .listing_item{
+        color: blue;
+        border: 1px solid rgb(86, 100, 88);
+    }
+
+    .title {
+        text-align: center;
+    }
+</style>
+
+{% endblock %}
+
+{% block body %}
+    <h2>Active Listings</h2>
+    
+
+    
+    {% for listing_item in listing %}
+    
+    <div class="card mb-3" style="max-width: 540px; display: flex; flex-wrap: wrap;">
+        <div class="row no-gutters">
+          <div class="col-md-4">
+            <img src="{{ listing_item.image_url }}" class="card-img" alt="..." style="padding: 5px;">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{ listing_item.title }}</h5>
+              <p class="card-text">{{ listing_item.description }}</p>
+              <p class="card-text">Price:${{ listing_item.current_price }}</p>
+              <p class="card-text"><small class="text-muted">Last Updated: {{ listing_item.created }} </small></p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+
+    {% endfor %}
+    
+{% endblock %}

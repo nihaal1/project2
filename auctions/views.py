@@ -76,6 +76,7 @@ def create_listing(request):
         create.title = request.POST.get('title')
         create.description = request.POST.get('description')
         create.current_price = request.POST.get('current_price')
+        create.category = request.POST.get('category')
         if request.POST.get('image_url'):
             create.image_url = request.POST.get('image_url')
         else:
@@ -95,3 +96,24 @@ def create_listing(request):
         "listing" : Auction_list.objects.all()
     })
     '''
+
+
+def category(request):
+    listing = Auction_list.objects.all()
+    return render (request,"auctions/category.html",{
+        "listing" : listing,
+        
+    }) 
+
+def category_listing(request,type):
+    listing = Auction_list.objects.filter(category=type)
+
+    return render (request,"auctions/category_listing.html",{
+        "listing" : listing,
+        
+    }) 
+
+
+
+def watchlist(request):
+    return render (request,"auctions/watchlist.html")
